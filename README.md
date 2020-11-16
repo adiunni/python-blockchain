@@ -12,7 +12,7 @@ source blockchain-env/bin/activate
 
 **Installing all the requirements**
 <br>
-All the requirements will be updated in the requirements.txt file hence there will not be any requirement of typing numbers of code.
+All the requirements will be updated in the requirements.txt file hence there will not be any requirement of typing numbers of code. Enter the following code in the terminal or command prompt to install the given requirements. Make sure you have pip installed.
 ```
 pip3 install -r requirements.txt
 ```
@@ -75,7 +75,10 @@ Extra information is given in the required files.
 
 - Next I have created a transaction pool which will store the transaction data which will be available for the node to read. Later I am also trying to broadcast transactions by deserialising them back to it's instance which will help read the transaction data and it's output. Later this design will also help in implementation of the frontend mechanics.
 
-- **Day 7(16/11/2020)**: Today our goal was to complete the backend part of our project. This involved linking our cryptocurrency system to our blockchain system. We already have built our blockchain module in it's entirity by taking the data as some test string. This test string is now replaced with the actual transaction data which we require during any transaction activity. We have jsonified this data hence this can be readable accross any websites. We have also performed some test app scripts which will send data in realtime to check whether the application works properly or not. During this process we also encountered that there are multiple outputs adding into the same recepient, we dealt with this by deleting the output from the list which has the same address. I guess we cannot send the same amount transactions to the same recipient, but I am sure we will be able to tackle that as well.
+- **Day 7(16/11/2020)**: Today our goal was to complete the backend part of our project. This involved linking our cryptocurrency system to our blockchain system. We already have built our blockchain module in it's entirity by taking the data as some test string. This test string is now replaced with the actual transaction data which we require during any transaction activity. We have jsonified this data hence this can be readable accross any websites. We have also performed some test app scripts which will send data in realtime to check whether the application works properly or not. During this process we also encountered that there are multiple outputs adding into the same recepient, we dealt with this by deleting the output from the list which has the same address. I guess we cannot send the same amount transactions to the same recipient, but I am sure we will be able to tackle that as well. 
+ 
+- Later part of the day we have implemented mining rewards feature which I have basically set the reward to zero for cryptocurrency mining method. This reward will be given to the miner on successful mining of the block in the chain. Mining rewards is essential so that the miner is motivated to spend computational power to mine blocks. Though this project will not require much computational power since I have adjusted the mining rate to 4 seconds, hence the average rate of the mining will take about 4 seconds. This will ensure not much computational power is utilised to mine the block.
+
 
 *This will also be updated on a later basis*
 ___

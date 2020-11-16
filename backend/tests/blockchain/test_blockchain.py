@@ -1,5 +1,7 @@
 from backend.blockchain.blockchain import Blockchain
 from backend.blockchain.block import GENESIS_DATA
+from backend.wallet.wallet import Wallet
+from backend.wallet.transactions import Transactions
 import pytest
 
 def test_blockchain_instance():
@@ -23,7 +25,7 @@ def test_addBlock():
 def three_blocks_chain():
      blockhain = Blockchain()
      for i in range(3):
-          blockhain.addBlock(i)
+          blockhain.addBlock([Transactions(Wallet(),'recepient',i).to_json()])
      return blockhain
 
 def test_is_valid_chain(three_blocks_chain):
@@ -67,6 +69,42 @@ def test_replace_chain_bad_chain(three_blocks_chain,blockchain):
      three_blocks_chain.chain[1].hash ='bad_hash'
      with pytest.raises(Exception,match='The incoming chain is invalid'):
           blockchain.replace_chain(three_blocks_chain.chain)
+
+def test_valid_transaction_chain(three_blocks_chain):
+     Blockchain.is_valid_transaction_chain(three_blocks_chain.chain)
+
+def test_is_valid_transaction_chain_duplicate_transaction(three_blocks_chain):
+     transaction = Transactions(Wallet(),'recepient',1).to_json()
+     three_blocks_chain.addBlock([transaction,transaction])
+     with pytest.raises(Exception,match='is not unique'):
+          Blockchain.is_valid_transaction_chain(three_blocks_chain.chain)
+
+def test_is_valid_transaction_chain_multiple_rewards(three_blocks_chain):
+     reward_1 = Transactions.reward_transaction(Wallet()).to_json()
+     reward_2 = Transactions.reward_transaction(Wallet()).to_json()
+     three_blocks_chain.addBlock([reward_1,reward_2])
+     with pytest.raises(Exception,match='one mining reward per block'):
+          Blockchain.is_valid_transaction_chain(three_blocks_chain.chain)
+
+def test_is_valid_transaction_chain_bad_transaction(three_blocks_chain):
+     bad_transaction = Transactions(Wallet(),'recepient',1)
+     bad_transaction.input['signature'] = Wallet().sign(bad_transaction.output)
+     three_blocks_chain.addBlock([bad_transaction.to_json()])
+     with pytest.raises(Exception):
+          Blockchain.is_valid_transaction_chain(three_blocks_chain.chain)
+
+def test_is_valid_transaction_chain_bad_historic_balance(three_blocks_chain):
+     wallet = Wallet()
+     bad_transaction = Transactions(wallet,'recepient',10)
+     bad_transaction.output[wallet.address] = 10000
+     bad_transaction.input['amount'] = 10010
+     bad_transaction.input['signature'] = wallet.sign(bad_transaction.output)
+     three_blocks_chain.addBlock([bad_transaction.to_json()])
+
+     with pytest.raises(Exception,match='has an invalid amount'):
+          Blockchain.is_valid_transaction_chain(three_blocks_chain.chain)
+
+
 
 
 
