@@ -3,6 +3,7 @@ import requests #Sends GET and POST requests in the application
 import random
 
 from flask import Flask , jsonify, request #This imports the Flask and jsonify class from the flask module.
+from flask_cors import CORS
 
 from backend.blockchain.blockchain import Blockchain #Required to GET the blockchain data.
 from backend.wallet.wallet import Wallet
@@ -13,6 +14,7 @@ from backend.pubsub import PubSub
 app = Flask(__name__) #Flask class takes one parameter which is name.
 #This creates a class for endpoints. e.g. www.google.com/drive/
 #Here /drive is an endpoint to access google drive.
+CORS(app, resources={r'/*':{'origins':'http://localhost:3000'}})
 blockchain = Blockchain()
 wallet = Wallet(blockchain)
 transaction_pool = TransactionPool()
@@ -28,6 +30,18 @@ def route_default():
 @app.route('/blockchain')#This will output the blockchain as a class.
 def route_blockchain():
     return jsonify(blockchain.to_json())
+
+@app.route('/blockchain/range')
+def route_blockchain_range():
+    #http://localhost:5000/blockchain/range?start=3&end=6
+    start = int(request.args.get('start'))
+    end = int(request.args.get('end'))
+
+    return jsonify(blockchain.to_json()[::-1][start:end])
+
+@app.route('/blockchain/length')
+def route_blockchain_length():
+    return jsonify(len(blockchain.chain))
 
 @app.route('/blockchain/mine')#This will output the method to mine data inside the blockchain class.
 def route_blockchain_mine():
@@ -80,7 +94,12 @@ if os.environ.get('PEER') == 'True':
     except Exception as e:
         print(f"\n--Error in synchronising: {e}")
 
-    
+if os.environ.get('SEED_DATA')== 'True':
+    for i in range(10):
+        blockchain.addBlock([
+            Transactions(Wallet(),Wallet().address,random.randint(2,50)).to_json(),
+            Transactions(Wallet(),Wallet().address,random.randint(2,50)).to_json()
+        ])    
 
 
 app.run(port=PORT)

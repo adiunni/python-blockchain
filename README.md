@@ -38,6 +38,19 @@ Make sure to activate the virtual environment.
 export PEER=True && python3 -m backend.app
 ```
 
+**Run the frontend**
+<br>
+Make sure to navigate to frontend directory of python-blockchain
+```
+npm run start 
+```
+
+**Seed the backend with data**
+Make sure to activate the virtual environment for python
+```
+export SEED_DATA=True && python3 -m backend.app
+```
+
 *This will be updated accordingly*
 ___
 ## DEVELOPER'S IDEA
@@ -77,8 +90,11 @@ Extra information is given in the required files.
 
 - **Day 7(16/11/2020)**: Today our goal was to complete the backend part of our project. This involved linking our cryptocurrency system to our blockchain system. We already have built our blockchain module in it's entirity by taking the data as some test string. This test string is now replaced with the actual transaction data which we require during any transaction activity. We have jsonified this data hence this can be readable accross any websites. We have also performed some test app scripts which will send data in realtime to check whether the application works properly or not. During this process we also encountered that there are multiple outputs adding into the same recepient, we dealt with this by deleting the output from the list which has the same address. I guess we cannot send the same amount transactions to the same recipient, but I am sure we will be able to tackle that as well. 
  
-- Later part of the day we have implemented mining rewards feature which I have basically set the reward to zero for cryptocurrency mining method. This reward will be given to the miner on successful mining of the block in the chain. Mining rewards is essential so that the miner is motivated to spend computational power to mine blocks. Though this project will not require much computational power since I have adjusted the mining rate to 4 seconds, hence the average rate of the mining will take about 4 seconds. This will ensure not much computational power is utilised to mine the block.
+- Later part of the day we have implemented mining rewards feature which I have basically set the reward to zero for cryptocurrency mining method. This reward will be given to the miner on successful mining of the block in the chain. Mining rewards is essential so that the miner is motivated to spend computational power to mine blocks. Though this project will not require much computational power since I have adjusted the mining rate to 4 seconds, hence the average rate of the mining will take about 4 seconds. This will ensure not much computational power is utilised to mine the block. Later we have written tests in the blockchain file which has covered some vulnerablities in the transaction part. This also makes the system secure and easy to operate into. This marked the end of Backend part, we will access the backend for certain functionalities.
 
+- **Day 8(17/11/2020)**: Today we have marked our journey in frontend development. I have installed React using npx command which is installed when you install node.js file in your computer. React is mainly used for UI development, but overall react is used to reduce the usage of HTML, CSS and makes coding by JavaScript. React engine helps create DOMs for HTML which is dynamic and can be updated easily. We will be going ahead with the frontend part of the Blockchain.
+
+- So today I have completed the frontend part of blockchain to display the blockchain data in the website. This included use of buttons installation of react-bootstrap and more. We have also learnt that we need to allow CORS to access the backend part of the chain. These things will be included in the requirements.txt file. I have also included pagination in this data field which will help in readablity of each chain data in the blockchain field. This marks the end of frontend for Blockchain, next I will try to get the frontend of cryptocurrency done in this section.
 
 *This will also be updated on a later basis*
 ___
