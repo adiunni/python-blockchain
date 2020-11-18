@@ -135,6 +135,9 @@ Extra information is given in the required files.
 
 - Thanks to anyone who has kept track till here. MAYBE I'll work more on it and hoping I will be able to completely make this application a full fledged cryptocurrency system.
 
+- **RESULT** :
+[ProtoCritHomePage](img/ProtoCrit1.png)
+
 ___
 ## ACKNOWLEDGEMENTS
 
