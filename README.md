@@ -51,7 +51,6 @@ Make sure to activate the virtual environment for python
 export SEED_DATA=True && python3 -m backend.app
 ```
 
-*This will be updated accordingly*
 ___
 ## DEVELOPER'S IDEA
 My idea is to create a cryptocurrency system which I can utilise for payments inside the college. The idea is to create a full fledged cryptocurrency system with certain nodes and verification. I hope to make teacher's desktops as miners and students as the wallet holders. Teacher's desktop will verify and add the transaction details to the blockchain and on spending some computational power the teacher may recieve some incentive which will be decided during a later period. The value of the currency system will also be decided later on.
@@ -96,7 +95,20 @@ Extra information is given in the required files.
 
 - So today I have completed the frontend part of blockchain to display the blockchain data in the website. This included use of buttons installation of react-bootstrap and more. We have also learnt that we need to allow CORS to access the backend part of the chain. These things will be included in the requirements.txt file. I have also included pagination in this data field which will help in readablity of each chain data in the blockchain field. This marks the end of frontend for Blockchain, next I will try to get the frontend of cryptocurrency done in this section.
 
-*This will also be updated on a later basis*
+- **Day 9(18/11/2020)**: Today I have completed the frontend part of cryptocurrency system hence marking an overall conclusion to this project. Here we had made use of react-hooks of useState and useEffect for fetching data from our backend built in this project. I have also included certain links to make this project a multi page one. This includes the blockchain part of the project, transaction pool, mining button which will mine the transactions. Now we have also terminated the use of Postman as we have made a frontend which will link the transactions in the transaction entry method which will convert itself into a JSON method which will also gets updated. I have also included a function which allows us to update our transactions in 10 seconds. This marks the end of our course project.
+
+- **CONCLUSION** : This project has been fun to work on. Although there are certain functions we need to work on, since this is a prototype.
+    - An account based system, where an account can be created on giving credentials.
+    - A non miner application where non miners can also transact between peers.
+    - A system where the blockchain can catch up.
+    - This system is similar to a centralised blockchain. There is only a root node (one with the localhost address 5000). Control needs to be shifted to another node when this node is taken down so that there will be no loss of data.
+    - More information regarding API endpoints etc.
+    - And last, a better functional UI.
+
+- I have tried to cover my best to get this project functional and running. On the later part I have to set up a system which can run the scripts automatically on opening the application. This is just some part of the process which has been completed
+
+- Thanks to anyone who has kept track till here. MAYBE I'll work more on it and hoping I will be able to completely make this application a full fledged cryptocurrency system.
+
 ___
 ## ACKNOWLEDGEMENTS
 
