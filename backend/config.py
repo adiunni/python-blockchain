@@ -14,5 +14,5 @@ MINE_RATE = 4 * SECONDS
 
 STARTING_BALANCE = 1000
 
-MINING_REWARD = 0
+MINING_REWARD = 100
 MINING_REWARD_INPUT = {'address':'*--official_mining_reward--*'}
