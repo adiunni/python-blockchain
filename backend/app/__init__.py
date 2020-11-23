@@ -14,7 +14,7 @@ from backend.pubsub import PubSub
 app = Flask(__name__) #Flask class takes one parameter which is name.
 #This creates a class for endpoints. e.g. www.google.com/drive/
 #Here /drive is an endpoint to access google drive.
-CORS(app, resources={r'/*':{'origins':'http://localhost:3000'}})
+CORS(app, resources={r'/*':{'origins':'http://localhost:5000'}})
 blockchain = Blockchain()
 wallet = Wallet(blockchain)
 transaction_pool = TransactionPool()
@@ -95,7 +95,7 @@ def route_transactions():
 
 
 
-ROOT_PORT = 5000
+ROOT_PORT = 5001
 PORT = ROOT_PORT
 
 if os.environ.get('PEER') == 'True':
