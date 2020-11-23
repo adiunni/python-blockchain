@@ -137,6 +137,9 @@ Extra information is given in the required files.
 
 - **RESULT** :
 ![ProtoCritHomePage](img/ProtoCrit1.png)
+![ProtoCritHomePage](img/ProtoCrit2.png)
+![ProtoCritHomePage](img/ProtoCrit3.png)
+![ProtoCritHomePage](img/ProtoCrit4.png)
 
 ___
 ## ACKNOWLEDGEMENTS
