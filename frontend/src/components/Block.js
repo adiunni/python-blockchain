@@ -52,14 +52,18 @@ function ToggleTransactionDisplay({block}) {
 
 
 function Block({block}){
-    const {hash, timestamp} = block;
+    const {hash, timestamp, last_hash, nonce,} = block;
     const hashDisplay = `${hash.substring(0,15)}...`
     const timestampDisplay = new Date(timestamp / MILLISECONDS_PY).toLocaleString()
+    const nonceDisplay = `${nonce}`
+    const prevHashDisplay = `${last_hash.substring(0,15)}...`
 
     return (
         <div className='Block'>
             <div>Hash : {hashDisplay}</div>
             <div>Timestamp : {timestampDisplay}</div>
+            <div>Nonce : {nonceDisplay}</div>
+            <div>Previous hash : {prevHashDisplay}</div>
             <ToggleTransactionDisplay block={block} />
         </div>
     )
