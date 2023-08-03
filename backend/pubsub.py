@@ -16,6 +16,7 @@ and help in appending the chain inside the blockchain class.
 pnconfig = PNConfiguration()
 pnconfig.subscribe_key = 'sub-c-744e489c-168c-11eb-ae19-92aa6521e721'
 pnconfig.publish_key = 'pub-c-1efe5c50-88df-4864-9fcc-5258969c4a9c'
+pnconfig.uuid = 'adiunni04357'
 
 CHANNELS = {
     'TEST':'TEST',
