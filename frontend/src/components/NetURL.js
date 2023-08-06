@@ -19,6 +19,8 @@ export default function NetURL() {
           onClick={() => {
             // Add to localStorage
             localStorage.setItem("NetURL", baseURL);
+            // Reload page
+            window.location.reload();
           }}
         >
           Fetch
