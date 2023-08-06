@@ -8,6 +8,7 @@ export default function NetURL() {
 
   return (
     <div className="NetURL">
+      <div>Use a local blockchain available at this address.</div>
       <div>
         <input
           type="text"
